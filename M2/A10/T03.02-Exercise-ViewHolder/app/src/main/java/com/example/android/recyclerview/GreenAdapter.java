@@ -16,6 +16,7 @@
 package com.example.android.recyclerview;
 
 import android.content.Context;
+//import android.support.v7.app.AlertController;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -116,7 +117,17 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     public int getItemCount() {
         return mNumberItems;
     }
+    public class NumberViewHolder extends RecyclerView.ViewHolder {
+        TextView listItemNumberView;
+        NumberViewHolder(View itemView) {
+            super(itemView);
+            listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
+        }
 
+        void bind(int listIndex) {
+            listItemNumberView.setText(String.valueOf(listIndex));
+        }
+    }
     // TODO (12) Create a class called NumberViewHolder that extends RecyclerView.ViewHolder
 
     // TODO (13) Within NumberViewHolder, create a TextView variable called listItemNumberView
